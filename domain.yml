@@ -1,0 +1,42 @@
+session_config:
+  session_expiration_time: 60
+  carry_over_slots_to_new_session: true
+intents:
+- greet
+- goodbye
+- affirm
+- deny
+- mood_great
+- mood_unhappy
+- bot_challenge
+- country_name
+- normal_intent
+
+entities:
+- country
+- time
+
+slots:
+  time:
+    influence_conversation: false
+    type: text
+
+responses:
+  utter_greet:
+  - text: Xin chào! Tôi là bot tỷ giá ngoại tệ, tôi có thể giúp gì cho bạn?
+  utter_cheer_up:
+  - image: https://i.imgur.com/nGF1K8f.jpg
+    text: 'Hy vọng sẽ làm bạn vui:'
+  utter_did_that_help:
+  - text: Điều này có giúp được bạn không?
+  utter_happy:
+  - text: Tuyệt vời!
+  utter_goodbye:
+  - text: Tạm biệt
+  utter_iamabot:
+  - text: Tớ là người máy, Powered by Hans
+  utter_country_name:
+  - text: Đúng rồi
+  utter_time:
+  - text: Duckling at {time}
+

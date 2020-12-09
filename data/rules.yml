@@ -1,0 +1,28 @@
+version: "2.0"
+
+rules:
+
+- rule: Say goodbye anytime the user says goodbye
+  steps:
+  - intent: goodbye
+  - action: utter_goodbye
+
+- rule: Great
+  steps:
+  - intent: greet
+  - action: utter_greet
+
+- rule: Say 'I am a bot' anytime the user challenges
+  steps:
+  - intent: bot_challenge
+  - action: utter_iamabot
+
+- rule: Ask for country
+  steps:
+  - intent: country_name
+  - action: utter_country_name
+
+- rule: Extract time
+  steps:
+  - intent: normal_intent
+  - action: utter_time

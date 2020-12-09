@@ -1,0 +1,112 @@
+version: "2.0"
+
+nlu:
+
+- lookup: country
+  examples: |
+    - ./country_data.txt
+
+- intent: greet
+  examples: |
+    - hey
+    - này
+    - chào
+    - hello
+    - xin chào
+    - chào bạn
+    - hế lô
+    - lô
+    - ê ê
+    - ê này
+
+- intent: goodbye
+  examples: |
+    - bye
+    - tạm biệt
+    - chào tạm biệt
+    - chào nhé
+    - thế nhé
+    - ok nhé
+    - goodbye
+    - bye bye
+    - bai bai
+
+- intent: affirm
+  examples: |
+    - yes
+    - y
+    - đồng ý
+    - tất nhiên
+    - được đấy
+    - đúng rồi
+
+- intent: deny
+  examples: |
+    - no
+    - n
+    - không
+    - không bao giờ
+    - k
+
+- intent: mood_great
+  examples: |
+    - perfect
+    - great
+    - amazing
+    - tuyệt
+    - tuyệt vời
+    - được đấy nhỉ
+    - thông minh quá
+    - giỏi quá
+    - hay thế
+    - hay nhỉ
+    - tốt thật
+
+- intent: mood_unhappy
+  examples: |
+    - chán
+    - buồn quá
+    - tệ
+    - tồi tệ
+    - không vui lắm
+    - tôi buồn quá
+    - sad
+    - không vui
+    - buồn thế
+    - chán quá
+    - buồn quá
+    - buồn thế
+    - chán thế
+    - buon qua
+    - chan qua
+    - buon the nhi
+
+- intent: bot_challenge
+  examples: |
+    - mày là bot à?
+    - bạn là bot à?
+    - bot hay người?
+    - tôi đang nói chuyện với bot đúng không?
+
+- intent: country_name
+  examples: |
+    - đây là [Việt Nam](country)  phải không?
+    - đây là [Thái Lan](country)  phải không?
+    - đây là [mã lai](country)  phải không?
+    - đây là [campuchia](country) phải không?
+
+- intent: normal_intent
+  examples: |
+    - Thứ 4 tuần này
+    - Chủ nhật tuần này
+    - hôm nay
+    - Tuần trước
+    - Tuần tới
+    - Tuần tiếp theo
+    - Tháng này
+    - Tháng tới
+    - 4h chiều nay
+    - 4 giờ chiều nay
+    - Thứ 6 tuần này
+    - Thứ sáu tuần này
+    - Thứ 7 tuần trước
