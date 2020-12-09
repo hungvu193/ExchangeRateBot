@@ -1,8 +1,17 @@
 # [WIP]
+## Clone Project
+```
+git clone https://github.com/hungvu193/ExchangeRateBot.git
+```
 ## Install 
 Create virtual environtment
 ```
+cd projectfolder
+```
+```
 python3 -m venv ./venv
+```
+```
 source ./venv/bin/activate
 ```
 Install spacy
