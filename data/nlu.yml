@@ -168,6 +168,7 @@ nlu:
     - Tỷ giá ngoại tệ giữa [Đô la mỹ]{"entity": "currency", "value": "USD"} và [Đô sing]{"entity": "currency", "value": "SGD"} hôm nay
     - Tỷ giá ngoại tệ giữa [Bảng anh]{"entity": "currency", "value": "GBP"} và [Đô sing]{"entity": "currency", "value": "SGD"} hôm nay
     - Tỷ giá giữa [Đô la mỹ]{"entity": "currency", "value": "USD"} và [Đô sing]{"entity": "currency", "value": "SGD"} hôm qua
+    - Tỷ giá giữa [Đô la mỹ]{"entity": "currency", "value": "USD"} và [Đô sing]{"entity": "currency", "value": "SGD"} thứ 6 tuần trước
     - Tỷ giá [ngoại tệ Úc]{"entity": "currency", "value": "AUD"} tuần trước
 
 - intent: out_of_scope
