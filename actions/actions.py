@@ -48,8 +48,7 @@ class ActionSearchExchange(Action):
         print(listCurrency)
         print(times)
         dispatcher.utter_message(
-            text="I'm searching, please wait: {} time: {}".format(
-                listCurrency, times))
+            text="Đang tìm kiếm thông tin, vui lòng đợi trong giây lát")
         if listCurrency is None:
             print("None")
 
@@ -61,6 +60,11 @@ class ActionSearchExchange(Action):
             extractTime = _create_api_time(times)
         path = _create_api_path(listCurrency, extractTime)
         results = requests.get(path).json()
-        print(results)
-        dispatcher.utter_message(text="Tỷ giá ngoại tệ: {}".format(results))
+        if extractTime is None:
+            dispatcher.utter_message(
+                text="Tỷ giá ngoại tệ hôm nay: {}".format(results))
+        else:
+            dispatcher.utter_message(text="Tỷ giá ngoại tệ ngày {}: {}".format(
+                extractTime, results))
+
         return []

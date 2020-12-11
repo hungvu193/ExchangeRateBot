@@ -1,66 +1,5 @@
 version: "2.0"
-
 nlu:
-
-- lookup: country
-  examples: |
-    - ./country_data.txt
-
-- lookup: currency
-  examples: |
-    - ./currency_data.txt
-
-- synonym: USD
-  examples: |
-    - Đô la mỹ
-    - Đô la
-    - đô mỹ
-    - tiền mỹ
-    - ngoại tệ mỹ
-    - Mỹ
-    - Hoa kì
-    - Hoa Kỳ
-    - American
-
-- synonym: SGD
-  examples: |
-    - Đô la sing
-    - Đô sing
-    - tiền sing
-    - ngoại tệ sing
-    - Sing
-    - singapore
-    - Singapo
-
-- synonym: GBP
-  examples: |
-    - Anh
-    - Bảng anh
-    - Bảng Anh
-    - tiền Anh
-    - ngoại tệ Anh
-    - UK
-
-- synonym: AUD
-  examples: |
-    - Úc
-    - Đô la Úc
-    - Đô Úc
-    - tiền Úc
-    - ngoại tệ Úc
-    - Australia
-    - Ngoại tệ australia
-    - ngoại tệ Úc
-    - tiền australia
-    - tiền úc
-# exchange api doesnt support VND, EURO is default
-- synonym: EUR
-  examples: |
-    - ơ rô
-    - Euro
-    - tiền châu âu
-    - đồng tiền chung châu Âu
-
 - intent: greet
   examples: |
     - hey
@@ -73,7 +12,6 @@ nlu:
     - lô
     - ê ê
     - ê này
-
 - intent: goodbye
   examples: |
     - bye
@@ -85,7 +23,6 @@ nlu:
     - goodbye
     - bye bye
     - bai bai
-
 - intent: affirm
   examples: |
     - yes
@@ -94,7 +31,6 @@ nlu:
     - tất nhiên
     - được đấy
     - đúng rồi
-
 - intent: deny
   examples: |
     - no
@@ -102,7 +38,6 @@ nlu:
     - không
     - không bao giờ
     - k
-
 - intent: mood_great
   examples: |
     - perfect
@@ -118,7 +53,6 @@ nlu:
     - tốt thật
     - cám ơn nhé
     - cảm ơn
-
 - intent: mood_unhappy
   examples: |
     - chán
@@ -131,27 +65,22 @@ nlu:
     - không vui
     - buồn thế
     - chán quá
-    - buồn quá
-    - buồn thế
     - chán thế
     - buon qua
     - chan qua
     - buon the nhi
-
 - intent: bot_challenge
   examples: |
     - mày là bot à?
     - bạn là bot à?
     - bot hay người?
     - tôi đang nói chuyện với bot đúng không?
-
 - intent: country_name
   examples: |
     - đây là [Việt Nam](country)  phải không?
     - đây là [Thái Lan](country)  phải không?
     - đây là [mã lai](country)  phải không?
     - đây là [campuchia](country) phải không?
-  
 - intent: ask_exachange
   examples: |
     - Tỷ giá ngày hôm nay?
@@ -170,7 +99,17 @@ nlu:
     - Tỷ giá giữa [Đô la mỹ]{"entity": "currency", "value": "USD"} và [Đô sing]{"entity": "currency", "value": "SGD"} hôm qua
     - Tỷ giá giữa [Đô la mỹ]{"entity": "currency", "value": "USD"} và [Đô sing]{"entity": "currency", "value": "SGD"} thứ 6 tuần trước
     - Tỷ giá [ngoại tệ Úc]{"entity": "currency", "value": "AUD"} tuần trước
-
+    - tỷ giá [ngoại tệ]{"entity": "currency", "value": "EUR"}
+    - tỷ giá [anh]{"entity": "currency", "value": "GBP"} và [úc]{"entity": "currency", "value": "AUD"} thứ 6 tuần trước
+    - tỷ giá [bảng anh]{"entity": "currency", "value": "GBP"} và [úc]{"entity": "currency", "value": "AUD"} thứ [6](currency) tuần trước
+    - tỷ giá [ngoại tệ]{"entity": "currency", "value": "EUR"} hôm nay
+    - tỷ giá [đô mỹ]{"entity": "currency", "value": "USD"} và [đô úc]{"entity": "currency", "value": "AUD"} hôm nay
+    - tỷ giá giữa [đô mỹ]{"entity": "currency", "value": "USD"} và [sing]{"entity": "currency", "value": "SGD"}
+    - tỷ giá [ngoại tệ]{"entity": "currency", "value": "EUR"} giữa [đô mỹ]{"entity": "currency", "value": "USD"} và [sing]{"entity": "currency", "value": "SGD"}
+    - tỷ giá [ngoại tệ]{"entity": "currency", "value": "EUR"} [đô mỹ]{"entity": "currency", "value": "USD"} và [sing]{"entity": "currency", "value": "SGD"}
+    - Tỷ giá giữa [Đô la mỹ]{"entity": "currency", "value": "USD"} và [Đô sing]{"entity": "currency", "value": "SGD"}
+    - tỷ giá giữ [đô mỹ]{"entity": "currency", "value": "USD"} và [đô sing]{"entity": "currency", "value": "SGD"}
+    - tỷ giá [ngoại tệ]{"entity": "currency", "value": "EUR"} thứ tư tuần trước
 - intent: out_of_scope
   examples: |
     - Không đúng gì hết
@@ -178,3 +117,55 @@ nlu:
     - Không giúp được
     - Sai rồi
     - sai bét
+- intent: nlu_fallback
+  examples: |
+    - đê ma ma
+- synonym: USD
+  examples: |
+    - Đô la mỹ
+    - Đô la
+    - đô mỹ
+    - tiền mỹ
+    - ngoại tệ mỹ
+    - Mỹ
+    - Hoa kì
+    - Hoa Kỳ
+    - American
+    - đô la mỹ
+- synonym: SGD
+  examples: |
+    - Đô la sing
+    - Đô sing
+    - tiền sing
+    - ngoại tệ sing
+    - Sing
+    - singapore
+    - Singapo
+    - ngoại tệ Sing
+- synonym: GBP
+  examples: |
+    - Anh
+    - Bảng anh
+    - Bảng Anh
+    - tiền Anh
+    - ngoại tệ Anh
+    - UK
+- synonym: AUD
+  examples: |
+    - Úc
+    - Đô la Úc
+    - Đô Úc
+    - tiền Úc
+    - ngoại tệ Úc
+    - Australia
+    - Ngoại tệ australia
+    - tiền australia
+    - tiền úc
+- synonym: EUR
+  examples: |
+    - ơ rô
+    - Euro
+    - tiền châu âu
+    - đồng tiền chung châu Âu
+    - ngoại tệ
+    - euro
