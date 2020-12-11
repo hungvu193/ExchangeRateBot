@@ -6,6 +6,61 @@ nlu:
   examples: |
     - ./country_data.txt
 
+- lookup: currency
+  examples: |
+    - ./currency_data.txt
+
+- synonym: USD
+  examples: |
+    - Đô la mỹ
+    - Đô la
+    - đô mỹ
+    - tiền mỹ
+    - ngoại tệ mỹ
+    - Mỹ
+    - Hoa kì
+    - Hoa Kỳ
+    - American
+
+- synonym: SGD
+  examples: |
+    - Đô la sing
+    - Đô sing
+    - tiền sing
+    - ngoại tệ sing
+    - Sing
+    - singapore
+    - Singapo
+
+- synonym: GBP
+  examples: |
+    - Anh
+    - Bảng anh
+    - Bảng Anh
+    - tiền Anh
+    - ngoại tệ Anh
+    - UK
+
+- synonym: AUD
+  examples: |
+    - Úc
+    - Đô la Úc
+    - Đô Úc
+    - tiền Úc
+    - ngoại tệ Úc
+    - Australia
+    - Ngoại tệ australia
+    - ngoại tệ Úc
+    - tiền australia
+    - tiền úc
+# exchange api doesnt support VND, EURO is default
+- synonym: EUR
+  examples: |
+    - ơ rô
+    - Euro
+    - tiền châu âu
+    - đồng tiền chung châu Âu
+
 - intent: greet
   examples: |
     - hey
@@ -61,6 +116,8 @@ nlu:
     - hay thế
     - hay nhỉ
     - tốt thật
+    - cám ơn nhé
+    - cảm ơn
 
 - intent: mood_unhappy
   examples: |
@@ -94,19 +151,29 @@ nlu:
     - đây là [Thái Lan](country)  phải không?
     - đây là [mã lai](country)  phải không?
     - đây là [campuchia](country) phải không?
-
-- intent: normal_intent
+  
+- intent: ask_exachange
   examples: |
-    - Thứ 4 tuần này
-    - Chủ nhật tuần này
-    - hôm nay
-    - Tuần trước
-    - Tuần tới
-    - Tuần tiếp theo
-    - Tháng này
-    - Tháng tới
-    - 4h chiều nay
-    - 4 giờ chiều nay
-    - Thứ 6 tuần này
-    - Thứ sáu tuần này
-    - Thứ 7 tuần trước
+    - Tỷ giá ngày hôm nay?
+    - Tỷ giá [ngoại tệ]{"entity": "currency", "value": "EUR"}
+    - Tỷ giá [ngoại tệ]{"entity": "currency", "value": "EUR"} ngày mai
+    - [ngoại tệ]{"entity": "currency", "value": "EUR"} hôm nay
+    - Tỷ giá [ngoại tệ]{"entity": "currency", "value": "EUR"} tuần trước
+    - Tỷ giá [ngoại tệ]{"entity": "currency", "value": "EUR"} tuần này
+    - Tỷ giá [đô la mỹ]{"entity": "currency", "value": "USD"}
+    - Tỷ giá [euro]{"entity": "currency", "value": "EUR"} hôm nay
+    - Tỷ giá [Sing]{"entity": "currency", "value": "SGD"} hôm qua
+    - Tỷ giá [ngoại tệ Sing]{"entity": "currency", "value": "SGD"} hôm qua
+    - Tỷ giá giữa [Đô la mỹ]{"entity": "currency", "value": "USD"} và [Đô sing]{"entity": "currency", "value": "SGD"} hôm nay
+    - Tỷ giá ngoại tệ giữa [Đô la mỹ]{"entity": "currency", "value": "USD"} và [Đô sing]{"entity": "currency", "value": "SGD"} hôm nay
+    - Tỷ giá ngoại tệ giữa [Bảng anh]{"entity": "currency", "value": "GBP"} và [Đô sing]{"entity": "currency", "value": "SGD"} hôm nay
+    - Tỷ giá giữa [Đô la mỹ]{"entity": "currency", "value": "USD"} và [Đô sing]{"entity": "currency", "value": "SGD"} hôm qua
+    - Tỷ giá [ngoại tệ Úc]{"entity": "currency", "value": "AUD"} tuần trước
+
+- intent: out_of_scope
+  examples: |
+    - Không đúng gì hết
+    - Không hữu dụng
+    - Không giúp được
+    - Sai rồi
+    - sai bét

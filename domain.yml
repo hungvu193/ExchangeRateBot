@@ -10,17 +10,25 @@ intents:
 - mood_unhappy
 - bot_challenge
 - country_name
-- normal_intent
-
+- ask_exchange
+- ask_exachange
+- out_of_scope
+- nlu_fallback
 entities:
 - country
 - time
-
+- currency
+- number
 slots:
   time:
-    influence_conversation: false
     type: text
-
+    influence_conversation: false
+  country:
+    type: text
+    influence_conversation: false
+  currency:
+    type: list
+    influence_conversation: false
 responses:
   utter_greet:
   - text: Xin chào! Tôi là bot tỷ giá ngoại tệ, tôi có thể giúp gì cho bạn?
@@ -37,6 +45,14 @@ responses:
   - text: Tớ là người máy, Powered by Hans
   utter_country_name:
   - text: Đúng rồi
-  utter_time:
-  - text: Duckling at {time}
-
+  utter_take_survey:
+  - text: Vui lòng góp ý - Take survey
+  utter_out_of_scope:
+  - text: Xin lỗi, hiện tại tôi chưa thể thực hiện yêu cầu này
+  utter_please_rephrase:
+  - text: Tôi không thể thực hiện yêu cầu này, bạn vui lòng thực hiện yêu cầu khác
+      nhé :)
+  utter_thank:
+  - text: Cám ơn bạn đã sử dụng dịch vụ!
+actions:
+- action_search_exchange

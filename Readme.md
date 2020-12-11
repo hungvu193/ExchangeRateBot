@@ -39,8 +39,12 @@ python -m spacy link vi_spacy_model vi
 ```
 docker run -p 8000:8000 rasa/duckling
 ```
+2. Start actions server
+```
+rasa run actions
+```
 
-2. Train model and start shell
+3. Train model and start shell
 ```
 rasa train & rasa shell
 ```
