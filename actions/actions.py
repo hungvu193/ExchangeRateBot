@@ -13,7 +13,7 @@ def _create_api_path(curreny: Any, time: Any) -> Text:
     timePath = ""
     currencyPath = ""
     if time is None:
-        timePath = latest
+        timePath = "latest"
     else:
         timePath = time
 
@@ -46,12 +46,16 @@ class ActionSearchExchange(Action):
         listCurrency = tracker.get_slot('currency')
         times = tracker.get_slot('time')
         print(listCurrency)
+        print(times)
         dispatcher.utter_message(
             text="I'm searching, please wait: {} time: {}".format(
                 listCurrency, times))
         if listCurrency is None:
             print("None")
-        if "from" in times or "to" in times:
+
+        if times is None:
+            extractTime = None
+        elif "from" in times or "to" in times:
             extractTime = _create_api_time(times['from'])
         else:
             extractTime = _create_api_time(times)
