@@ -1,21 +1,47 @@
 version: "2.0"
-
 stories:
-
 - story: happy path
   steps:
   - intent: greet
   - action: utter_greet
   - intent: ask_exachange
   - action: action_search_exchange
-
-
+  - action: utter_did_that_help
+  - intent: affirm
+  - action: utter_happy
 - story: sad path 1
   steps:
   - intent: greet
   - action: utter_greet
   - intent: ask_exachange
   - action: action_search_exchange
-
-
+  - action: utter_did_that_help
+  - intent: deny
+  - action: utter_cheer_up
+- story: lock card happy path
+  steps:
+  - intent: greet
+  - action: utter_greet
+  - intent: lock_card
+  - action: lock_card_form
+  - active_loop: lock_card_form
+  - intent: stop
+  - action: utter_ask_continue
+  - intent: affirm
+  - action: lock_card_form
+  - active_loop: null
+  - action: action_submit_lock_card
+  - action: utter_slots_values
+- story: lock card sad path
+  steps:
+  - intent: greet
+  - action: utter_greet
+  - intent: lock_card
+  - action: lock_card_form
+  - active_loop: lock_card_form
+  - intent: stop
+  - action: utter_ask_continue
+  - intent: deny
+  - action: action_deactivate_loop
+  - active_loop: null
 

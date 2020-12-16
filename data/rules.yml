@@ -23,15 +23,39 @@ rules:
   - intent: country_name
   - action: utter_country_name
 
-- rule: out-of-scope
-  steps:
-  - intent: out_of_scope
-  - action: utter_out_of_scope
+# - rule: out-of-scope
+#   steps:
+#   - intent: out_of_scope
+#   - action: utter_out_of_scope
 
-- rule: Ask the user to rephrase whenever they send a message with low NLU confidence
+# - rule: Ask the user to rephrase whenever they send a message with low NLU confidence
+#   steps:
+#   - intent: nlu_fallback
+#   - action: utter_please_rephrase
+
+- rule: activate restaurant form
   steps:
-  - intent: nlu_fallback
-  - action: utter_please_rephrase
+  - intent: lock_card
+  - action: lock_card_form
+  - active_loop: lock_card_form
+
+- rule: submit form
+  condition:
+  - active_loop: lock_card_form
+  steps:
+  - action: lock_card_form
+  - active_loop: null
+  - action: action_submit_lock_card
+  - action: utter_slots_values
+
+- rule: deactive form
+  condition:
+  - active_loop: lock_card_form
+  steps:
+  - action: lock_card_form
+  - active_loop: null
+  - action: action_submit_lock_card
+  - action: utter_slots_values
 
 - rule: Thanks user
   steps:

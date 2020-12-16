@@ -14,11 +14,17 @@ intents:
 - ask_exachange
 - out_of_scope
 - nlu_fallback
+- lock_card
+- stop
 entities:
 - country
 - time
 - currency
 - number
+- name
+- card_number
+- people_id
+- email
 slots:
   time:
     type: text
@@ -29,9 +35,33 @@ slots:
   currency:
     type: list
     influence_conversation: false
+  name:
+    type: text
+    auto_fill: false
+    influence_conversation: false
+  card_number:
+    type: text
+    auto_fill: false
+    influence_conversation: false
+  people_id:
+    type: text
+    auto_fill: false
+    influence_conversation: false
+  email:
+    type: text
+    auto_fill: false
+    influence_conversation: false
+  requested_slot:
+    type: text
+    influence_conversation: false
 responses:
   utter_greet:
-  - text: Xin chào! Tôi là bot tỷ giá ngoại tệ, tôi có thể giúp gì cho bạn?
+  - buttons:
+    - payload: Tỷ giá ngoại tệ
+      title: Tỷ giá hối đoái
+    - payload: Khóa thẻ
+      title: Khóa thẻ
+    text: Xin chào! Tôi là bot tỷ giá ngoại tệ, tôi có thể giúp gì cho bạn?
   utter_cheer_up:
   - image: https://i.imgur.com/nGF1K8f.jpg
     text: 'Hy vọng sẽ làm bạn vui:'
@@ -54,5 +84,36 @@ responses:
       nhé :)
   utter_thank:
   - text: Cám ơn bạn đã sử dụng dịch vụ!
+  utter_ask_name:
+  - text: Vui lòng cho biết tên quý khách
+  utter_ask_card_number:
+  - text: Vui lòng nhập số thẻ
+  utter_ask_people_id:
+  - text: Vui lòng nhập số chứng minh thư/ căn cước công dân
+  utter_submit:
+  - text: All done!
+  utter_slots_values:
+  - text: "Chúng tôi đã tiếp nhận thông tin của bạn:\n - Tên: {name}\n - Số thẻ: {card_number}\n\
+      \ - CMT/CCCD: {people_id}\n - Email: {email}.\n Một email đã được gửi đến {email}\
+      \ quý khách vui lòng kiểm tra và làm theo hướng dẫn"
+  utter_ask_email:
+  - text: Vui lòng nhập địa chỉ email
+  utter_ask_continue:
+  - text: Bạn có muốn tiếp tục không?
 actions:
 - action_search_exchange
+- action_submit_lock_card
+forms:
+  lock_card_form:
+    card_number:
+    - entity: card_number
+      type: from_text
+    email:
+    - entity: email
+      type: from_text
+    name:
+    - entity: name
+      type: from_text
+    people_id:
+    - entity: people_id
+      type: from_text

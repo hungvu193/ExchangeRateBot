@@ -31,6 +31,8 @@ nlu:
     - tất nhiên
     - được đấy
     - đúng rồi
+    - có
+    - có nhé
 - intent: deny
   examples: |
     - no
@@ -38,6 +40,7 @@ nlu:
     - không
     - không bao giờ
     - k
+    - không nhé
 - intent: mood_great
   examples: |
     - perfect
@@ -120,52 +123,74 @@ nlu:
 - intent: nlu_fallback
   examples: |
     - đê ma ma
+    - mày tao
+    - tao
+- intent: lock_card
+  examples: |
+    - Tôi muốn khóa thẻ
+    - Khóa thẻ
+    - Khóa thẻ tạm thời
+    - khóa thẻ tín dụng
+- intent: stop
+  examples: |
+    - Hủy
+    - Hủy luồng
+    - Hủy khóa thẻ
+    - dừng
+    - tạm dừng
+    - dừng lại
+- synonym: EUR
+  examples: |
+    - ngoại tệ
+    - euro
+    - ơ rô
+    - Euro
+    - tiền châu âu
+    - đồng tiền chung châu Âu
 - synonym: USD
   examples: |
+    - đô la mỹ
     - Đô la mỹ
-    - Đô la
     - đô mỹ
+    - Đô la
     - tiền mỹ
     - ngoại tệ mỹ
     - Mỹ
     - Hoa kì
     - Hoa Kỳ
     - American
-    - đô la mỹ
 - synonym: SGD
   examples: |
-    - Đô la sing
+    - Sing
+    - ngoại tệ Sing
     - Đô sing
+    - sing
+    - đô sing
+    - Đô la sing
     - tiền sing
     - ngoại tệ sing
-    - Sing
     - singapore
     - Singapo
-    - ngoại tệ Sing
 - synonym: GBP
   examples: |
-    - Anh
     - Bảng anh
+    - anh
+    - bảng anh
+    - Anh
     - Bảng Anh
     - tiền Anh
     - ngoại tệ Anh
     - UK
 - synonym: AUD
   examples: |
+    - ngoại tệ Úc
+    - úc
+    - đô úc
     - Úc
     - Đô la Úc
     - Đô Úc
     - tiền Úc
-    - ngoại tệ Úc
     - Australia
     - Ngoại tệ australia
     - tiền australia
     - tiền úc
-- synonym: EUR
-  examples: |
-    - ơ rô
-    - Euro
-    - tiền châu âu
-    - đồng tiền chung châu Âu
-    - ngoại tệ
-    - euro

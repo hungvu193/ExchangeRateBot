@@ -68,3 +68,14 @@ class ActionSearchExchange(Action):
                 extractTime, results))
 
         return []
+
+
+class ActionSubmitLockCard(Action):
+    def name(self) -> Text:
+        return "action_submit_lock_card"
+
+    def run(self, dispatcher: CollectingDispatcher, tracker: Tracker,
+            domain: Dict[Text, Any]) -> List[Dict[Text, Any]]:
+        dispatcher.utter_message(text="Đã xong")
+
+        return []
