@@ -44,4 +44,25 @@ stories:
   - intent: deny
   - action: action_deactivate_loop
   - active_loop: null
-
+- story: Story from Conversation ID b37802329a7c40688a88c69fa8bd290f
+  steps:
+  - slot_was_set:
+    - currency:
+      - EUR
+  - action: utter_did_that_help
+  - intent: affirm
+  - action: utter_happy
+- story: Story from Conversation ID b3aa6834657e49bcb990b12ed25bcf3d
+  steps:
+  - intent: greet
+  - action: utter_greet
+  - intent: ask_exachange
+    entities:
+    - currency: EUR
+  - slot_was_set:
+    - currency:
+      - EUR
+  - action: action_search_exchange
+  - action: utter_did_that_help
+  - intent: affirm
+  - action: utter_cheer_up
