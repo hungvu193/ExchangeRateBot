@@ -9,14 +9,19 @@ pipeline:
   - name: SpacyNLP
     model: "vi_spacy_model"
   - name: SpacyTokenizer
+  # Creates a vector representation of user message and response (if specified) using the spaCy featurizer.
   - name: SpacyFeaturizer
+  # support regex
   - name: RegexFeaturizer
+  # support entity extraction.
   - name: LexicalSyntacticFeaturizer
+  # Creates bag-of-words representation of user messages, intents, and responses.
   - name: CountVectorsFeaturizer
   - name: CountVectorsFeaturizer
     analyzer: "char_wb"
     min_ngram: 1
     max_ngram: 4
+    # entities, intent and intent_ranking
   - name: DIETClassifier
     epochs: 100
   - name: EntitySynonymMapper
@@ -26,8 +31,10 @@ pipeline:
     locale: "vi_VN"
     timezone: "Asia/Ho_Chi_Minh"
     timeout: 5
+    # predicted response templates, confidence and the response key under the retrieval intent
   - name: ResponseSelector
     epochs: 100
+    # lassifies a message with the intent nlu_fallback if the NLU intent classification scores are ambiguous. The confidence is set to 1 - top intent confidence.
   - name: FallbackClassifier
     threshold: 0.7
 
